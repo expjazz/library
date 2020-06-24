@@ -58,6 +58,7 @@ function addBook(e) {
     }
   });
   const x = new Book(tempArray[0], tempArray[1], tempArray[2], tempArray[3]);
+  this.reset();
   myLibrary.push(x);
   render();
   localStorage.setItem('Books', JSON.stringify(myLibrary));
