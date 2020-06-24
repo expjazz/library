@@ -1,26 +1,24 @@
-const myLibrary = JSON.parse(localStorage.getItem("Books")) || [];
-const tableBody = document.getElementById("table-body");
-const formButton = document.getElementById("add-book-btn");
-const form = document.getElementById("form");
+const myLibrary = JSON.parse(localStorage.getItem('Books')) || [];
+const tableBody = document.getElementById('table-body');
+const formButton = document.getElementById('add-book-btn');
+const form = document.getElementById('form');
 function Book(title, author, pages, read) {
   this.title = title;
   this.author = author;
   this.pages = pages;
   this.read = read;
-  this.info = () => {
-    return `${this.title} by ${this.author} with ${this.pages} pages, ${this.read}`;
-  };
+  this.info = () => `${this.title} by ${this.author} with ${this.pages} pages, ${this.read}`;
 }
 
 function showForm() {
-  form.classList.toggle("hidden");
+  form.classList.toggle('hidden');
 }
 
 function render() {
   let count = 0;
   tableBody.innerHTML = `${myLibrary
     .map((book) => {
-      count++;
+      count += 1;
       return `   <tr>
     <th scope="row">${count}</th>
     <td id="book-title">${book.title}</td>
@@ -39,22 +37,22 @@ function render() {
   </td>
   </tr>`;
     })
-    .join("")}`;
+    .join('')}`;
 }
 
 render();
 
 function addBook(e) {
   e.preventDefault();
-  inputs = form.querySelectorAll("input");
+  inputs = form.querySelectorAll('input');
   const tempArray = [];
   const tempObj = {};
   inputs.forEach((input) => {
-    if (input.type === "checkbox") {
+    if (input.type === 'checkbox') {
       if (input.checked) {
-        tempArray.push("Read");
+        tempArray.push('Read');
       } else {
-        tempArray.push("Not Read");
+        tempArray.push('Not Read');
       }
     } else {
       tempArray.push(input.value);
@@ -64,28 +62,28 @@ function addBook(e) {
   console.log(x);
   myLibrary.push(x);
   render();
-  localStorage.setItem("Books", JSON.stringify(myLibrary));
+  localStorage.setItem('Books', JSON.stringify(myLibrary));
 }
 
 function readStatus(e) {
-  if (e.target.id.includes("btn-read-status")) {
-    let el = e.target.id.split("-");
-    let elId = el[el.length - 1];
-    let tempObj = myLibrary[elId - 1];
-    if (tempObj.read === "Read") {
-      tempObj.read = "Not Read";
+  if (e.target.id.includes('btn-read-status')) {
+    const el = e.target.id.split('-');
+    const elId = el[el.length - 1];
+    const tempObj = myLibrary[elId - 1];
+    if (tempObj.read === 'Read') {
+      tempObj.read = 'Not Read';
     } else {
-      tempObj.read = "Read";
+      tempObj.read = 'Read';
     }
-  } else if (e.target.id.includes("btn-remove")) {
-    let el = e.target.id.split("-");
-    let elId = el[el.length - 1];
+  } else if (e.target.id.includes('btn-remove')) {
+    const el = e.target.id.split('-');
+    const elId = el[el.length - 1];
     console.log(myLibrary.splice(elId - 1, 1));
   }
-  localStorage.setItem("Books", JSON.stringify(myLibrary));
+  localStorage.setItem('Books', JSON.stringify(myLibrary));
   render();
 }
 
-formButton.addEventListener("click", showForm);
-form.addEventListener("submit", addBook);
-tableBody.addEventListener("click", readStatus);
+formButton.addEventListener('click', showForm);
+form.addEventListener('submit', addBook);
+tableBody.addEventListener('click', readStatus);
