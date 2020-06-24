@@ -1,7 +1,29 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  height: 100%;
+  background-image: url("../pictures/janko-ferlic-sfL_QOnmy00-unsplash.jpg");
+  background-position: 100% 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
 .hidden {
   transform: translateX(500px);
 }
 .form {
   transition: 1s all;
   z-index: -1;
+  background-color: rgb(139, 131, 131);
+  padding: 1em;
+  text-align: center;
+  color: white;
+}
+
+.form > small {
+  color: white;
 }

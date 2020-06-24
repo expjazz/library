@@ -25,33 +25,14 @@
                 <th scope="col">Author</th>
                 <th scope="col">Pages</th>
                 <th scope="col">Read</th>
-                <th scope="col">Remove</th>
               </tr>
             </thead>
-            <tbody id="table-body">
-              <tr>
-                <th scope="row">1</th>
-                <td id="book-title">2</td>
-                <td id="book-author">3</td>
-                <td id="book-pages">4</td>
-                <td id="book-read">
-                  <span class="mr-3"> 5</span>
-                  <button class="btn btn-primary btn-sm" id="btn-read-status">
-                    Status
-                  </button>
-                </td>
-                <td class="mid="delete">
-                  <button class="btn btn-danger btn-sm" id="btn-remove">
-                    Remove
-                  </button>
-                </td>
-              </tr>
-            </tbody>
+            <tbody id="table-body"></tbody>
           </table>
         </div>
         <div class="col-3">
           <button class="btn btn-primary" id="add-book-btn">
-            Add new book
+            New Book
           </button>
 
           <div>
@@ -65,7 +46,7 @@
                   aria-describedby="authorHelp"
                   placeholder="Book Title"
                 />
-                <small id="bookHelp" class="form-text text-muted"
+                <small id="bookHelp" class="form-text"
                   >Here goes your book title.</small
                 >
               </div>
@@ -79,7 +60,7 @@
                   aria-describedby="authorHelp"
                   placeholder="Book Title"
                 />
-                <small id="bookHelp" class="form-text text-muted"
+                <small id="bookHelp" class="form-text"
                   >Author of the book</small
                 >
               </div>
@@ -93,9 +74,7 @@
                   aria-describedby="pagesHelp"
                   placeholder="Book Pages"
                 />
-                <small id="bookPages" class="form-text text-muted"
-                  >Number of Pages</small
-                >
+                <small id="bookPages" class="form-text">Number of Pages</small>
               </div>
 
               <div class="form-group form-check">

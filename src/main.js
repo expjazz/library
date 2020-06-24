@@ -77,7 +77,12 @@ function readStatus(e) {
     } else {
       tempObj.read = "Read";
     }
+  } else if (e.target.id.includes("btn-remove")) {
+    let el = e.target.id.split("-");
+    let elId = el[el.length - 1];
+    console.log(myLibrary.splice(elId - 1, 1));
   }
+  localStorage.setItem("Books", JSON.stringify(myLibrary));
   render();
 }
 
