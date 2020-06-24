@@ -44,9 +44,8 @@ render();
 
 function addBook(e) {
   e.preventDefault();
-  inputs = form.querySelectorAll('input');
+  const inputs = form.querySelectorAll('input');
   const tempArray = [];
-  const tempObj = {};
   inputs.forEach((input) => {
     if (input.type === 'checkbox') {
       if (input.checked) {
@@ -58,8 +57,7 @@ function addBook(e) {
       tempArray.push(input.value);
     }
   });
-  x = new Book(tempArray[0], tempArray[1], tempArray[2], tempArray[3]);
-  console.log(x);
+  const x = new Book(tempArray[0], tempArray[1], tempArray[2], tempArray[3]);
   myLibrary.push(x);
   render();
   localStorage.setItem('Books', JSON.stringify(myLibrary));
@@ -78,7 +76,7 @@ function readStatus(e) {
   } else if (e.target.id.includes('btn-remove')) {
     const el = e.target.id.split('-');
     const elId = el[el.length - 1];
-    console.log(myLibrary.splice(elId - 1, 1));
+    myLibrary.splice(elId - 1, 1);
   }
   localStorage.setItem('Books', JSON.stringify(myLibrary));
   render();
