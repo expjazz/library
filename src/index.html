@@ -28,6 +28,18 @@
               </tr>
             </thead>
             <tbody id="table-body">
+              <tr>
+                <th scope="row">1</th>
+                <td id="book-title">2</td>
+                <td id="book-author">3</td>
+                <td id="book-pages">4</td>
+                <td id="book-read">
+                  <span class="mr-3"> 5</span>
+                  <button class="btn btn-primary btn-sm" id="btn-read-status">
+                    Status
+                  </button>
+                </td>
+              </tr>
             </tbody>
           </table>
         </div>
@@ -62,7 +74,8 @@
                   placeholder="Book Title"
                 />
                 <small id="bookHelp" class="form-text text-muted"
-                  >Author of the book</small>
+                  >Author of the book</small
+                >
               </div>
 
               <div class="form-group">
@@ -78,7 +91,7 @@
                   >Number of Pages</small
                 >
               </div>
-            
+
               <div class="form-group form-check">
                 <input
                   type="checkbox"

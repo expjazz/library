@@ -26,7 +26,14 @@ function render() {
     <td id="book-title">${book.title}</td>
     <td id="book-author">${book.author}</td>
     <td id="book-pages">${book.pages}</td>
-    <td id="book-read">${book.read}</td>
+    <td id="book-read">
+    <span class="mr-3"> ${book.read} </span>
+    <button class="btn btn-primary btn-sm" id="btn-read-status${count}">
+      Status
+    </button>
+    
+    
+    </td>
   </tr>`;
     })
     .join("")}`;
@@ -57,5 +64,19 @@ function addBook(e) {
   localStorage.setItem("Books", JSON.stringify(myLibrary));
 }
 
+function readStatus(e) {
+  if (e.target.id.includes("btn-read-status")) {
+    let elId = e.target.id[e.target.id.length - 1];
+    let tempObj = myLibrary[elId - 1];
+    if (tempObj.read === "Read") {
+      tempObj.read = "Not Read";
+    } else {
+      tempObj.read = "Read";
+    }
+  }
+  render();
+}
+
 formButton.addEventListener("click", showForm);
 form.addEventListener("submit", addBook);
+tableBody.addEventListener("click", readStatus);
