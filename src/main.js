@@ -1,4 +1,4 @@
-const myLibrary = JSON.parse(localStorage.getItem("Books")) || []
+const myLibrary = JSON.parse(localStorage.getItem("Books")) || [];
 const tableBody = document.getElementById("table-body");
 const formButton = document.getElementById("add-book-btn");
 const form = document.getElementById("form");
@@ -36,24 +36,21 @@ render();
 
 function addBook(e) {
   e.preventDefault();
-  inputs = form.querySelectorAll('input');
+  inputs = form.querySelectorAll("input");
   const tempArray = [];
-  const tempObj = {
-
-  };
+  const tempObj = {};
   inputs.forEach((input) => {
-    if (input.type === 'checkbox') {
+    if (input.type === "checkbox") {
       if (input.checked) {
-        tempArray.push('Read');
+        tempArray.push("Read");
       } else {
-        tempArray.push('Not Read');
+        tempArray.push("Not Read");
       }
     } else {
       tempArray.push(input.value);
     }
-
   });
-  x = new Book(tempArray[0], tempArray[1], tempArray[2], tempArray[3])
+  x = new Book(tempArray[0], tempArray[1], tempArray[2], tempArray[3]);
   console.log(x);
   myLibrary.push(x);
   render();
@@ -61,4 +58,4 @@ function addBook(e) {
 }
 
 formButton.addEventListener("click", showForm);
-form.addEventListener('submit', addBook);
+form.addEventListener("submit", addBook);
