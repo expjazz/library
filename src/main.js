@@ -28,12 +28,15 @@ function render() {
     <td id="book-pages">${book.pages}</td>
     <td id="book-read">
     <span class="mr-3"> ${book.read} </span>
-    <button class="btn btn-primary btn-sm" id="btn-read-status${count}">
+    <button class="btn btn-primary btn-sm" id="btn-read-status-${count}">
       Status
     </button>
-    
-    
     </td>
+    <td class="mid="delete">
+    <button class="btn btn-danger btn-sm" id="btn-remove-${count}">
+      Remove
+    </button>
+  </td>
   </tr>`;
     })
     .join("")}`;
@@ -66,7 +69,8 @@ function addBook(e) {
 
 function readStatus(e) {
   if (e.target.id.includes("btn-read-status")) {
-    let elId = e.target.id[e.target.id.length - 1];
+    let el = e.target.id.split("-");
+    let elId = el[el.length - 1];
     let tempObj = myLibrary[elId - 1];
     if (tempObj.read === "Read") {
       tempObj.read = "Not Read";
