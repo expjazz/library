@@ -46,35 +46,54 @@
           <div>
             <form class="form hidden" id="form">
               <div class="form-group">
-                <label for="exampleInputEmail1">Email address</label>
+                <label for="exampleInputEmail1">Book Title</label>
                 <input
-                  type="email"
+                  type="text"
                   class="form-control"
-                  id="exampleInputEmail1"
-                  aria-describedby="emailHelp"
-                  placeholder="Enter email"
+                  id="form-title"
+                  aria-describedby="authorHelp"
+                  placeholder="Book Title"
                 />
-                <small id="emailHelp" class="form-text text-muted"
-                  >We'll never share your email with anyone else.</small
+                <small id="bookHelp" class="form-text text-muted"
+                  >Here goes your book title.</small
                 >
               </div>
+
               <div class="form-group">
-                <label for="exampleInputPassword1">Password</label>
+                <label for="exampleInputEmail1">Author</label>
                 <input
-                  type="password"
+                  type="text"
                   class="form-control"
-                  id="exampleInputPassword1"
-                  placeholder="Password"
+                  id="author"
+                  aria-describedby="authorHelp"
+                  placeholder="Book Title"
                 />
+                <small id="bookHelp" class="form-text text-muted"
+                  >Author of the book</small>
               </div>
+
+              <div class="form-group">
+                <label for="exampleInputPages">Number of Pages</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="book-pages"
+                  aria-describedby="pagesHelp"
+                  placeholder="Book Pages"
+                />
+                <small id="bookPages" class="form-text text-muted"
+                  >Number of Pages</small
+                >
+              </div>
+            
               <div class="form-group form-check">
                 <input
                   type="checkbox"
                   class="form-check-input"
-                  id="exampleCheck1"
+                  id="readCheck1"
                 />
-                <label class="form-check-label" for="exampleCheck1"
-                  >Check me out</label
+                <label class="form-check-label" for="readCheck1"
+                  >Reading Status</label
                 >
               </div>
               <button type="submit" class="btn btn-primary">Submit</button>

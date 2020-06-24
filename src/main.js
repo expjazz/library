@@ -6,7 +6,7 @@ function Book(title, author, pages, read) {
   this.title = title;
   this.author = author;
   this.pages = pages;
-  this.read = "Not Read";
+  this.read = read;
   this.info = () => {
     return `${this.title} by ${this.author} with ${this.pages} pages, ${this.read}`;
   };
@@ -43,4 +43,30 @@ function render() {
 
 render();
 
+function addBook(e) {
+  e.preventDefault();
+  inputs = form.querySelectorAll('input');
+  const tempArray = [];
+  const tempObj = {
+
+  };
+  inputs.forEach((input) => {
+    if (input.type === 'checkbox') {
+      if (input.checked) {
+        tempArray.push('Read');
+      } else {
+        tempArray.push('Not Read');
+      }
+    } else {
+      tempArray.push(input.value);
+    }
+
+  });
+  x = new Book(tempArray[0], tempArray[1], tempArray[2], tempArray[3])
+  console.log(x);
+  myLibrary.push(x);
+  render();
+}
+
 formButton.addEventListener("click", showForm);
+form.addEventListener('submit', addBook);
