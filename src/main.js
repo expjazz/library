@@ -1,5 +1,5 @@
+const myLibrary = JSON.parse(localStorage.getItem("Books")) || []
 const tableBody = document.getElementById("table-body");
-let myLibrary = [];
 const formButton = document.getElementById("add-book-btn");
 const form = document.getElementById("form");
 function Book(title, author, pages, read) {
@@ -11,15 +11,6 @@ function Book(title, author, pages, read) {
     return `${this.title} by ${this.author} with ${this.pages} pages, ${this.read}`;
   };
 }
-
-let bookOne = new Book(
-  "Harry Potter and the Deatly Hallows",
-  "J.K Rownlings",
-  700,
-  "Read"
-);
-
-myLibrary.push(bookOne);
 
 function showForm() {
   form.classList.toggle("hidden");
@@ -66,6 +57,7 @@ function addBook(e) {
   console.log(x);
   myLibrary.push(x);
   render();
+  localStorage.setItem("Books", JSON.stringify(myLibrary));
 }
 
 formButton.addEventListener("click", showForm);
