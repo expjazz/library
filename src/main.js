@@ -21,6 +21,10 @@ let bookOne = new Book(
 
 myLibrary.push(bookOne);
 
+function showForm() {
+  form.classList.toggle("hidden");
+}
+
 function render() {
   let count = 0;
   tableBody.innerHTML = `${myLibrary
@@ -38,3 +42,5 @@ function render() {
 }
 
 render();
+
+formButton.addEventListener("click", showForm);
