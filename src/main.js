@@ -42,11 +42,43 @@ function render() {
 
 render();
 
+function checkIfValid(object) {
+  myLibrary.forEach((book) => {
+    switch (book) {
+      case book.name === object.name:
+        alert('ha');
+        break;
+      default:
+        console.log('ok');
+    }
+  });
+}
+
+const errors = (input) => {
+  if (input.type !== 'checkbox') {
+    const small = input.parentNode.querySelector('small');
+
+    if (input.value === '') {
+      input.classList.add('is-invalid');
+      small.innerText = `The ${input.placeholder} can't be empty`;
+      small.classList.add('text-danger');
+      return false;
+    }
+    input.classList.add('is-valid');
+    input.classList.remove('is-invalid');
+    small.innerText = `The ${input.placeholder} is valid`;
+    small.classList.remove('text-danger');
+    return true;
+  }
+};
+
 function addBook(e) {
   e.preventDefault();
   const inputs = form.querySelectorAll('input');
+  const validator = [];
   const tempArray = [];
   inputs.forEach((input) => {
+    validator.push(errors(input));
     if (input.type === 'checkbox') {
       if (input.checked) {
         tempArray.push('Read');
@@ -57,8 +89,11 @@ function addBook(e) {
       tempArray.push(input.value);
     }
   });
+  if (validator.includes(false)) {
+    return;
+  }
   const x = new Book(tempArray[0], tempArray[1], tempArray[2], tempArray[3]);
-  this.reset();
+  checkIfValid(x);
   myLibrary.push(x);
   render();
   localStorage.setItem('Books', JSON.stringify(myLibrary));
