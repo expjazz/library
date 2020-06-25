@@ -1,5 +1,5 @@
-import { 
-  myLibrary, tableBody, formButton, form
+import {
+  myLibrary, tableBody, formButton, form,
 } from './elements.js';
 
 function Book(title, author, pages, read) {
@@ -53,6 +53,11 @@ function checkIfValid(object) {
   return checked;
 }
 
+const formReset = () => {
+  const inputs = form.querySelectorAll('input');
+  inputs.forEach((i) => i.classList.remove('is-valid'));
+  form.reset();
+};
 
 const errors = (input) => {
   if (input.type !== 'checkbox') {
@@ -70,6 +75,7 @@ const errors = (input) => {
     small.classList.remove('text-danger');
     return true;
   }
+  return '';
 };
 
 function addBook(e) {
@@ -101,6 +107,7 @@ function addBook(e) {
   }
   myLibrary.push(x);
   render();
+  formReset();
   localStorage.setItem('Books', JSON.stringify(myLibrary));
 }
 
