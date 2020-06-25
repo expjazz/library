@@ -43,16 +43,16 @@ function render() {
 render();
 
 function checkIfValid(object) {
+  let checked = false;
   myLibrary.forEach((book) => {
-    switch (book) {
-      case book.name === object.name:
-        alert('ha');
-        break;
-      default:
-        console.log('ok');
+    const regex = new RegExp(book.title, 'gi');
+    if (object.title.match(regex) !== null) {
+      checked = true;
     }
   });
+  return checked;
 }
+
 
 const errors = (input) => {
   if (input.type !== 'checkbox') {
@@ -93,7 +93,12 @@ function addBook(e) {
     return;
   }
   const x = new Book(tempArray[0], tempArray[1], tempArray[2], tempArray[3]);
-  checkIfValid(x);
+  if (checkIfValid(x)) {
+    alert(`${x.title} is already in the library.`);
+    form.reset();
+    form.querySelectorAll('input').forEach(i => i.classList.remove('is-valid'));
+    return;
+  }
   myLibrary.push(x);
   render();
   localStorage.setItem('Books', JSON.stringify(myLibrary));
