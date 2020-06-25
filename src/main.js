@@ -1,7 +1,7 @@
-const myLibrary = JSON.parse(localStorage.getItem('Books')) || [];
-const tableBody = document.getElementById('table-body');
-const formButton = document.getElementById('add-book-btn');
-const form = document.getElementById('form');
+import { 
+  myLibrary, tableBody, formButton, form
+} from './elements.js';
+
 function Book(title, author, pages, read) {
   this.title = title;
   this.author = author;
