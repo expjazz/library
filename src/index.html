@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./style.css" />
+
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row mt-5">
+        <div class="col-9">
+          <table class="table table-dark">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Title</th>
+                <th scope="col">Author</th>
+                <th scope="col">Pages</th>
+                <th scope="col">Read</th>
+              </tr>
+            </thead>
+            <tbody id="table-body"></tbody>
+          </table>
+        </div>
+        <div class="col-3">
+          <button class="btn btn-primary" id="add-book-btn">
+            New Book
+          </button>
+
+          <div>
+            <form class="form hidden" id="form">
+              <div class="form-group">
+                <label for="exampleInputEmail1">Book Title</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="form-title"
+                  aria-describedby="authorHelp"
+                  placeholder="Book Title"
+                />
+                <small id="bookHelp" class="form-text"
+                  >Here goes your book title.</small
+                >
+              </div>
+
+              <div class="form-group">
+                <label for="exampleInputEmail1">Author</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="author"
+                  aria-describedby="authorHelp"
+                  placeholder="Book Author"
+                />
+                <small id="bookHelp" class="form-text"
+                  >Author of the book</small
+                >
+              </div>
+
+              <div class="form-group">
+                <label for="exampleInputPages">Number of Pages</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="book-pages"
+                  aria-describedby="pagesHelp"
+                  placeholder="Book Pages"
+                />
+                <small id="bookPages" class="form-text">Number of Pages</small>
+              </div>
+
+              <div class="form-group form-check">
+                <input
+                  type="checkbox"
+                  class="form-check-input"
+                  id="readCheck1"
+                />
+                <label class="form-check-label" for="readCheck1"
+                  >Reading Status</label
+                >
+              </div>
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>
